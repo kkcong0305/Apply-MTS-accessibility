@@ -8,6 +8,17 @@ body {
     min-height: 874px;
     position: relative;
 }
+.sr-only {
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    width: 1px;
+    height: 1px;
+    font-size: 1px;
+    opacity: 0.01;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
 /* 모달 */
 .modal_background {
     display: none;
@@ -188,6 +199,7 @@ body {
     color: #878d97;
     padding: 0 24px 12px;
     font-weight: 400;
+    border-bottom: 1px solid #d4d7dd;
 }
 .update_sub .sub_fix {
     display: flex;
@@ -205,4 +217,149 @@ body {
 }
 .update_sub .sub_update {
     font-size: 13px;
+}
+.container {
+    display: flex;
+}
+.container section.table {
+    flex: 2;
+}
+/* 1. 매도 */
+.container section table {
+    width: 100%;
+}
+.container section.table,
+th,
+td {
+    border: 1px solid #f0f0f0;
+    border-collapse: collapse;
+}
+.container section.table .selling tbody tr,
+.container section.table .buying tbody tr {
+    display: flex;
+    flex-direction: row-reverse;
+}
+.container section.table .selling tbody tr td.change_price {
+    flex: 1;
+    position: relative;
+    padding: 4px 10px;
+    color: #fa2d42;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: right;
+}
+.container section.table .selling tbody tr td.change_price.text_badge::before {
+    content: "고";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 13px;
+    bottom: 6.5px;
+    width: 12px;
+    height: 12px;
+    background-color: #fa2d42;
+    font-size: 6px;
+    border-radius: 50%;
+    color: #ffffff;
+}
+.container section.table .selling tbody tr td.change_price > span {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+}
+.container section.table .selling tbody tr td.change_quantity {
+    flex: 1;
+    position: relative;
+    padding: 13.5px 10px;
+    font-size: 12px;
+    background-color: #f0f7fb;
+    text-align: right;
+}
+.container section.table .selling tbody tr td.change_quantity.number_badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container section.table .selling tbody tr td.change_quantity.number_badge::before {
+    content: "85";
+    font-size: 12px;
+    color: #fa2d42;
+}
+
+/* 2. 상세정보 */
+.container section.description_box {
+    flex: 1;
+    font-size: 9px;
+    font-weight: 400;
+    margin: auto 0;
+}
+.container section.description_box .description_padding {
+    padding: 0 10px;
+}
+.container section.description_box .description_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container section.description_box .description_item + .description_item {
+    margin-top: 6px;
+}
+.container section.description_box .description_item > span {
+    color: #767d8b;
+}
+.container section.description_box .description_item > span > span {
+    display: block;
+}
+.container section.description_box .description_item > .description_amount {
+    color: #000000;
+}
+.container section.description_box .description_item > .description_amount.red {
+    color: #fa2d42;
+}
+/* 현재가 */
+.now_price {
+    display: flex;
+    background-color: #fff5c8;
+}
+.now_price > div {
+    flex: 1;
+    padding: 4px 10px;
+}
+.now_price > div + div {
+    border-left: 1px solid #d9d9d9;
+}
+.now_price .price_item {
+    text-align: right;
+    box-sizing: border-box;
+}
+.now_price .price_item .price {
+    display: block;
+    color: #fa2d42;
+    font-weight: 600;
+    font-size: 15px;
+}
+.now_price .price_item .price.text_badge {
+    position: relative;
+}
+.now_price .price_item .price + .price {
+    margin-top: 10px;
+}
+.now_price .price_item .price.text_badge::before {
+    content: "K";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #02c2ac;
+    font-size: 6px;
+    border-radius: 50%;
+    color: #ffffff;
+}
+.now_price .price_item .price.text_badge.yellow::before {
+    content: "N";
+    background-color: #ffaa00;
 }
