@@ -30,12 +30,12 @@
                 <h3>출력 방식</h3>
                 <div class="option">
                     <div class="option_item">
-                        <input id="text" type="radio" />
+                        <input id="text" name="group1" type="radio" />
                         <label for="text">텍스트</label>
                     </div>
                     <span class="radio_text">숫자 정보를 그대로 출력합니다.</span>
                     <div class="option_item">
-                        <input id="sound" type="radio" />
+                        <input id="sound" name="group1" type="radio" />
                         <label for="sound">음향</label>
                     </div>
                     <span class="radio_text">음향의 고/저, 반복으로 가격의 등락과 가격 정보를 출력합니다.</span>
@@ -43,12 +43,12 @@
                 <h3>출력 주기</h3>
                 <div class="option">
                     <div class="option_item">
-                        <input id="text" type="radio" />
+                        <input id="text" name="group2" type="radio" />
                         <label for="text">1초</label>
                     </div>
                     <span class="radio_text">출력 주기가 짧은 경우, 음성 안내가 겹칠 수 있습니다.</span>
                     <div class="option_item">
-                        <input id="sound" type="radio" />
+                        <input id="sound" name="group2" type="radio" />
                         <label for="sound">5초</label>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                 </button>
             </div>
         </div>
-        <div class="main">
+        <div class="main" id="mainCont">
             <!-- navi -->
             <div class="navi_top">
                 <button type="button" class="arrow" aria-label="뒤로">
@@ -281,7 +281,7 @@
                 </div>
                 <div aria-hidden="true"></div>
             </section>
-            <div class="container">
+            <div class="container reverse">
                 <!-- 4. 매수 -->
                 <section class="table">
                     <table class="buying">
@@ -298,87 +298,171 @@
                                     71,300
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                             <tr>
                                 <td class="change_price">
                                     71,200
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                             <tr>
                                 <td class="change_price">
                                     71,100
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                             <tr>
                                 <td class="change_price">
                                     71,000
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                             <tr>
                                 <td class="change_price">
                                     70,900
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                             <tr>
                                 <td class="change_price">
                                     70,800
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                             <tr>
                                 <td class="change_price">
                                     70,700
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                             <tr>
                                 <td class="change_price">
                                     70,600
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                             <tr>
                                 <td class="change_price">
                                     70,500
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                             <tr>
                                 <td class="change_price">
                                     70,400
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity number_badge">402,138</td>
                             </tr>
                         </tbody>
                     </table>
                 </section>
                 <!-- 5. 체결강도 -->
-                <section class="description_box"></section>
+                <section class="description_box conclusion">
+                    <div class="conclusion">
+                        체결강도
+                        <span>92.09%</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                    <div class="description_conclusion">
+                        <span>71,400</span>
+                        <span class="conclusion_amout">30</span>
+                    </div>
+                </section>
             </div>
             <!-- 6. 거래량 종합 -->
+            <section class="total">
+                <div class="total_selling">
+                    <span class="price text_badge blue">72,000</span>
+                </div>
+                <div class="total_amout">
+                    <strong>정규장</strong>
+                    <span>-988,765</span>
+                </div>
+                <div class="total_buying">
+                    <span class="price text_badge red">402,138</span>
+                </div>
+            </section>
         </div>
     </body>
     <script>
         const modal = document.getElementById("bottomModal");
+        const main = document.getElementById("mainCont");
         function openModal() {
             modal.classList.add("active");
+            main.setAttribute("inert", "");
         }
         function closeModal() {
             modal.classList.remove("active");
+            main.removeAttribute("inert");
         }
     </script>
 </html>

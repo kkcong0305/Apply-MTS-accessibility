@@ -72,6 +72,7 @@ body {
     color: #696c71;
     font-size: 13px;
     margin-top: 10px;
+    padding-left: 28px;
 }
 .modal_background .modal_cont .option .radio_text + .option_item {
     margin-top: 12px;
@@ -234,12 +235,13 @@ td {
     border: 1px solid #f0f0f0;
     border-collapse: collapse;
 }
-.container section.table .selling tbody tr,
-.container section.table .buying tbody tr {
+
+.container section.table .selling tbody tr {
     display: flex;
     flex-direction: row-reverse;
 }
-.container section.table .selling tbody tr td.change_price {
+.container section.table .selling tbody tr td.change_price,
+.container section.table .buying tbody tr td.change_price {
     flex: 1;
     position: relative;
     padding: 4px 10px;
@@ -263,7 +265,8 @@ td {
     border-radius: 50%;
     color: #ffffff;
 }
-.container section.table .selling tbody tr td.change_price > span {
+.container section.table .selling tbody tr td.change_price > span,
+.container section.table .buying tbody tr td.change_price > span {
     display: block;
     font-size: 12px;
     font-weight: 400;
@@ -286,7 +289,6 @@ td {
     font-size: 12px;
     color: #fa2d42;
 }
-
 /* 2. 상세정보 */
 .container section.description_box {
     flex: 1;
@@ -317,7 +319,7 @@ td {
 .container section.description_box .description_item > .description_amount.red {
     color: #fa2d42;
 }
-/* 현재가 */
+/* 3. 현재가 */
 .now_price {
     display: flex;
     background-color: #fff5c8;
@@ -362,4 +364,103 @@ td {
 .now_price .price_item .price.text_badge.yellow::before {
     content: "N";
     background-color: #ffaa00;
+}
+/* 4. 매수 */
+.container.reverse {
+    flex-direction: row-reverse;
+}
+.container section.table .buying tbody tr {
+    display: flex;
+}
+.container section.table,
+.container section.table .buying tbody tr td.change_quantity {
+    border-right: none;
+}
+.container section.table .buying tbody tr td.change_quantity {
+    flex: 1;
+    position: relative;
+    padding: 13.5px 10px;
+    font-size: 12px;
+    background-color: #fff7f6;
+    text-align: right;
+}
+.container section.table .buying tbody tr td.change_quantity.number_badge {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container section.table .buying tbody tr td.change_quantity.number_badge::after {
+    content: "85";
+    font-size: 12px;
+    color: #fa2d42;
+}
+/* 5. 체결강도 */
+.container section.description_box.conclusion {
+    font-size: 12px;
+    font-weight: 400;
+    margin: inherit;
+    border-bottom: 1px solid #f0f0f0;
+}
+.container section.description_box.conclusion div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+.container section.description_box div.conclusion {
+    color: #767d8b;
+    padding: 8px 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+.container section.description_box .conclusion > span {
+    color: #000000;
+}
+.container section.description_box .description_conclusion {
+    color: #fa2d42;
+}
+/* 6. 거래량 종합 */
+section.total {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+}
+section.total > div {
+    flex: 1;
+    padding: 14px 10px;
+    box-sizing: border-box;
+}
+section.total > div + div {
+    border-left: 1px solid #f0f0f0;
+}
+section.total .total_selling {
+    position: relative;
+    text-align: right;
+}
+section.total .total_selling::before {
+    content: "85";
+    position: absolute;
+    color: #fa2d42;
+    left: 10px;
+}
+section.total .total_amout {
+    text-align: center;
+    padding: 6px 10px;
+}
+section.total .total_amout strong {
+    font-weight: 600;
+}
+section.total .total_amout > span {
+    display: block;
+    margin-top: 4px;
+}
+section.total .total_buying {
+    position: relative;
+    text-align: left;
+}
+section.total .total_buying::after {
+    content: "85";
+    position: absolute;
+    color: #1779fa;
+    right: 10px;
 }
