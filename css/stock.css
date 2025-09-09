@@ -1,0 +1,208 @@
+html,
+body {
+    font-family: "NanumBarunGothic", sans-serif;
+}
+body {
+    width: 402px;
+    height: auto;
+    min-height: 874px;
+    position: relative;
+}
+/* 모달 */
+.modal_background {
+    display: none;
+    position: fixed;
+    width: 402px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+.modal_background.active {
+    display: block;
+}
+.modal_background.active .modal_cont {
+    position: fixed;
+    width: 402px;
+    bottom: 0;
+    box-sizing: border-box;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    padding: 24px;
+    background-color: #ffffff;
+    box-shadow: 0px -4px 20px rgba(0, 0, 0, 0.2);
+}
+.modal_background .modal_cont h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 32px;
+}
+.modal_background .modal_cont h3 {
+    margin-bottom: 12px;
+    color: #393b40;
+    font-size: 18px;
+}
+.modal_background .modal_cont .option + h3 {
+    margin-top: 32px;
+}
+.modal_background .modal_cont .option .option_item {
+    display: block;
+}
+.modal_background .modal_cont .option .option_item > label {
+    font-size: 16px;
+}
+.modal_background .modal_cont .option .option_item + .option_item {
+    margin-top: 12px;
+}
+.modal_background .modal_cont .option .radio_text {
+    display: block;
+    color: #696c71;
+    font-size: 13px;
+    margin-top: 10px;
+}
+.modal_background .modal_cont .option .radio_text + .option_item {
+    margin-top: 12px;
+}
+.modal_cont .close_modal {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+}
+.modal_cont .close_modal > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.main {
+    position: relative;
+}
+/* navigation */
+.navi_top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 14px 16px;
+}
+
+.navi_top .arrow {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+.navi_top .arrow > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.navi_top .search_cont {
+    position: relative;
+}
+.navi_top .search_cont .search {
+    background-color: #f7f7f7;
+    height: 28px;
+    width: 162px;
+    padding: 0 8px;
+    border-radius: 4px;
+    font-size: 16px;
+}
+.navi_top .search_cont .search_btn {
+    position: absolute;
+    right: 8px;
+    top: 6px;
+    width: 16px;
+    height: 16px;
+}
+.navi_top .search_cont .search_btn > img {
+    width: 100%;
+    height: 100%;
+}
+.navi_top .black {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 5.5px 7.96px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+.navi_top .black.icon {
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navi_top .black.icon > img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.navi_top .more {
+    width: 24px;
+    height: 24px;
+}
+.navi_top .more > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* update_cont */
+.update_cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fa2d42;
+    font-weight: 600;
+    margin-top: 20px;
+    padding: 12px 24px 8px;
+}
+.update_cont .amount_text {
+    font-size: 24px;
+}
+.update_cont .comparison_text {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 50px;
+    position: relative;
+}
+.update_cont .comparison_text::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    background: url("./icon/arrow_up.png") center / contain no-repeat;
+}
+.update_cont .percent .percent_cont {
+    font-size: 24px;
+}
+.update_sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #878d97;
+    padding: 0 24px 12px;
+    font-weight: 400;
+}
+.update_sub .sub_fix {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+}
+.update_sub .sub_fix .time,
+.update_sub .sub_fix .high,
+.update_sub .sub_fix .low,
+.update_sub .sub_update {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.update_sub .sub_update {
+    font-size: 13px;
+}

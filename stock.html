@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <link type="text/css" rel="stylesheet" href="./css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="./css/stock.css" />
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet" />
+    <head>
+        <meta charset="UTF-8" />
+        <title>stock</title>
+    </head>
+    <body>
+        <!-- bottom 모달 -->
+        <div class="modal_background" id="bottomModal">
+            <div class="modal_cont">
+                <h2>음성 안내 설정</h2>
+                <h3>실시간 출력정보</h3>
+                <div class="option">
+                    <div class="option_item">
+                        <input id="now" name="group" type="checkbox" />
+                        <label for="now">현재가</label>
+                    </div>
+                    <div class="option_item">
+                        <input id="highest" name="group" type="checkbox" />
+                        <label for="highest">최고가</label>
+                    </div>
+                    <div class="option_item">
+                        <input id="lowest" name="group" type="checkbox" />
+                        <label for="lowest">최저가</label>
+                    </div>
+                </div>
+                <h3>출력 방식</h3>
+                <div class="option">
+                    <div class="option_item">
+                        <input id="text" type="radio" />
+                        <label for="text">텍스트</label>
+                    </div>
+                    <span class="radio_text">숫자 정보를 그대로 출력합니다.</span>
+                    <div class="option_item">
+                        <input id="sound" type="radio" />
+                        <label for="sound">음향</label>
+                    </div>
+                    <span class="radio_text">음향의 고/저, 반복으로 가격의 등락과 가격 정보를 출력합니다.</span>
+                </div>
+                <h3>출력 주기</h3>
+                <div class="option">
+                    <div class="option_item">
+                        <input id="text" type="radio" />
+                        <label for="text">1초</label>
+                    </div>
+                    <span class="radio_text">출력 주기가 짧은 경우, 음성 안내가 겹칠 수 있습니다.</span>
+                    <div class="option_item">
+                        <input id="sound" type="radio" />
+                        <label for="sound">5초</label>
+                    </div>
+                </div>
+                <button id="closeModal" onClick="closeModal()" class="close_modal" aria-label="닫기">
+                    <img src="./icon/close.png" alt="" />
+                </button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="navi_top">
+                <button type="button" class="arrow" aria-label="뒤로">
+                    <img src="./icon/arrow_left.png" alt="" />
+                </button>
+                <div class="search_cont">
+                    <input type="text" class="search" value="삼성전자" aria-label="검색어 입력" />
+                    <button type="button" class="search_btn" aria-label="검색">
+                        <img src="./icon/search.png" alt="" />
+                    </button>
+                </div>
+                <button type="button" class="black">통합</button>
+                <button type="button" class="black">주문</button>
+                <button id="openModal" type="button" class="black icon" onclick="openModal()" aria-label="음성 안내 설정">
+                    <img src="./icon/speech.png" alt="" />
+                </button>
+                <button type="button" class="more" aria-label="더보기">
+                    <img src="./icon/more_view.png" alt="" />
+                </button>
+            </div>
+            <div class="update_cont">
+                <div class="amount" aria-live="polit">
+                    <span class="amount_text">71,400</span>
+                </div>
+                <div class="comparison" aria-live="polit">
+                    <span class="comparison_text">800</span>
+                </div>
+                <div class="percent" aria-live="polit">
+                    <span class="percent_cont">1.13%</span>
+                </div>
+            </div>
+            <div class="update_sub">
+                <div class="sub_fix">
+                    <div class="time">
+                        시
+                        <span class="time_text">70,800</span>
+                    </div>
+                    <div class="high">
+                        고
+                        <span class="high_text">71,800</span>
+                    </div>
+                    <div class="low">
+                        저
+                        <span class="low_text">70,600</span>
+                    </div>
+                </div>
+                <div class="sub_update">
+                    <span class="real_number">2,544,491</span>
+                    주
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        const modal = document.getElementById("bottomModal");
+        function openModal() {
+            modal.classList.add("active");
+        }
+        function closeModal() {
+            modal.classList.remove("active");
+        }
+    </script>
+</html>
