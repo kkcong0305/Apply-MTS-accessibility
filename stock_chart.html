@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link type="text/css" rel="stylesheet" href="./css/reset.css" />
+    <link type="text/css" rel="stylesheet" href="./css/stock.css" />
+    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet" />
+    <head>
+        <meta charset="UTF-8" />
+        <title>stock_chart</title>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/series-label.js"></script>
+        <script src="https://code.highcharts.com/modules/sonification.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    </head>
+    <body>
+        <div class="main" id="mainCont">
+            <!-- navi -->
+            <div class="navi_top">
+                <button type="button" class="arrow" aria-label="뒤로">
+                    <img src="./icon/arrow_left.png" alt="" />
+                </button>
+                <div class="search_cont">
+                    <input type="text" class="search" value="삼성전자" aria-label="검색어 입력" />
+                    <button type="button" class="search_btn" aria-label="검색">
+                        <img src="./icon/search.png" alt="" />
+                    </button>
+                </div>
+                <button type="button" class="black">통합</button>
+                <button type="button" class="black">주문</button>
+                <button id="openModal" type="button" class="black icon" onclick="openModal()" aria-label="음성 안내 설정">
+                    <img src="./icon/speech.png" alt="" />
+                </button>
+                <button type="button" class="more" aria-label="더보기">
+                    <img src="./icon/more_view.png" alt="" />
+                </button>
+            </div>
+            <!-- update -->
+            <div class="update_cont">
+                <div class="amount" aria-live="polit">
+                    <span class="amount_text">71,400</span>
+                </div>
+                <div class="comparison" aria-live="polit">
+                    <span class="comparison_text">800</span>
+                </div>
+                <div class="percent" aria-live="polit">
+                    <span class="percent_cont">1.13%</span>
+                </div>
+            </div>
+            <div class="update_sub">
+                <div class="sub_fix">
+                    <div class="time">
+                        시
+                        <span class="time_text">70,800</span>
+                    </div>
+                    <div class="high">
+                        고
+                        <span class="high_text">71,800</span>
+                    </div>
+                    <div class="low">
+                        저
+                        <span class="low_text">70,600</span>
+                    </div>
+                </div>
+                <div class="sub_update">
+                    <span class="real_number">2,544,491</span>
+                    주
+                </div>
+            </div>
+            <!-- chart table -->
+            <div id="container" class="container_table" style="width: 100%; height: 400px"></div>
+            <!-- chart sound -->
+            <div class="container_sound">
+                <button id="sonify" class="sonify">Play chart</button>
+                <div id="container_2"></div>
+            </div>
+        </div>
+    </body>
+    <script>
+        // chart table
+        Highcharts.chart("container", {
+            title: {
+                text: "Sample Line Chart",
+                align: "left",
+            },
+            subtitle: {
+                text: "Data Trends Over Time",
+                align: "left",
+            },
+            yAxis: {
+                title: { text: "Value" },
+                min: 0,
+                max: 8,
+                tickInterval: 4,
+            },
+            xAxis: {
+                min: 0,
+                max: 10,
+                tickInterval: 2,
+                accessibility: {
+                    rangeDescription: "Range: 0 to 10",
+                },
+            },
+            legend: {
+                layout: "vertical",
+                align: "right",
+                verticalAlign: "middle",
+            },
+            plotOptions: {
+                series: {
+                    label: { connectorAllowed: false },
+                    pointStart: 0, // x축 시작값
+                },
+            },
+            exporting: {
+                enabled: true,
+            },
+            accessibility: {
+                enabled: true,
+            },
+            series: [
+                {
+                    name: "Category A",
+                    data: [1, 3, 2, 4, 3, 5, 3, 4, 6, 3, 7], // pointStart=0 기준
+                },
+                {
+                    name: "Category B",
+                    data: [2, 1, 3, 2, 3, 2, 1, 2, 2, 2, 1],
+                },
+            ],
+        });
+
+        // chart sound
+        const chart = Highcharts.chart("container_2", {
+            title: { text: "Audio chart" },
+            series: [{ data: [4, 5, 6, 5, 7, 9, 11, 13, 10] }, { data: [1, 3, 4, 2, 3, 1, 2, 3, 4] }],
+            exporting: {
+                enabled: false,
+            },
+            accessibility: {
+                enabled: false,
+            },
+        });
+
+        // 버튼 클릭으로 소니피케이션 토글
+        document.getElementById("sonify").onclick = () => chart.toggleSonify();
+    </script>
+</html>

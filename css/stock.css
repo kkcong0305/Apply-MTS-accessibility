@@ -242,7 +242,7 @@ td {
 }
 .container section.table .selling tbody tr td.change_price,
 .container section.table .buying tbody tr td.change_price {
-    flex: 1;
+    flex: 2;
     position: relative;
     padding: 4px 10px;
     color: #fa2d42;
@@ -273,27 +273,30 @@ td {
 }
 .container section.table .selling tbody tr td.change_quantity {
     flex: 1;
+    box-sizing: border-box;
     position: relative;
-    padding: 13.5px 10px;
+    padding: 13.5px 0;
     font-size: 12px;
     background-color: #f0f7fb;
     text-align: right;
 }
-.container section.table .selling tbody tr td.change_quantity.number_badge {
+.container section.table .selling tbody tr td.change_quantity {
+    border-left: none;
+}
+.container section.table .selling tbody tr td.change_number {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-.container section.table .selling tbody tr td.change_quantity.number_badge .number_red {
+    flex: 1;
+    box-sizing: border-box;
     font-size: 12px;
     color: #fa2d42;
+    background-color: #f0f7fb;
+    border-right: none;
+}
+.container section.table .selling tbody tr td.change_number > span {
+    padding-left: 10px;
 }
 
-/* .container section.table .selling tbody tr td.change_quantity.number_badge::before {
-    content: "85";
-    font-size: 12px;
-    color: #fa2d42;
-} */
 /* 2. 상세정보 */
 .container section.description_box {
     flex: 1;
@@ -398,11 +401,21 @@ td {
     font-size: 12px;
     color: #fa2d42;
 }
-/* .container section.table .buying tbody tr td.change_quantity.number_badge::after {
-    content: "85";
+.container section.table .buying tbody tr td.change_number {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    flex: 1;
+    box-sizing: border-box;
     font-size: 12px;
     color: #fa2d42;
-} */
+    background-color: #fff7f6;
+    border-left: none;
+}
+.container section.table .buying tbody tr td.change_number > span {
+    padding-right: 10px;
+}
+
 /* 5. 체결강도 */
 .container section.description_box.conclusion {
     font-size: 12px;
@@ -443,33 +456,39 @@ section.total > div + div {
     border-left: 1px solid #f0f0f0;
 }
 section.total .total_selling {
-    position: relative;
-    text-align: right;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
 }
-section.total .total_selling::before {
-    content: "85";
-    position: absolute;
+section.total .total_selling .selling_amount {
     color: #fa2d42;
-    left: 10px;
 }
-section.total .total_amout {
+section.total .total_amount {
     text-align: center;
     padding: 6px 10px;
 }
-section.total .total_amout strong {
+section.total .total_amount strong {
     font-weight: 600;
 }
-section.total .total_amout > span {
+section.total .total_amount > span {
     display: block;
     margin-top: 4px;
 }
 section.total .total_buying {
-    position: relative;
-    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
-section.total .total_buying::after {
-    content: "85";
-    position: absolute;
+
+section.total .total_buying .buying_amount {
     color: #1779fa;
-    right: 10px;
+}
+
+/* stock_chart */
+body .container_table + .container_sound {
+    margin-top: 40px;
+}
+body .container_sound {
+    border-top: 1px solid #d4d7dd;
+    padding-top: 30px;
 }
