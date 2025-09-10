@@ -1,3 +1,4 @@
+// 음성안내 설정 모달
 const modal = document.getElementById("bottomModal");
 const main = document.getElementById("mainCont");
 function openModal() {
@@ -8,6 +9,26 @@ function closeModal() {
     modal.classList.remove("active");
     main.removeAttribute("inert");
 }
+
+// 구매 모달
+const priceButtons = document.querySelectorAll(".change_price button");
+const modalBackground = document.getElementById("bottomModal_1");
+const modalPrice = modalBackground.querySelector(".modal_price span");
+const modalCloseButtons = modalBackground.querySelectorAll(".modal_sell button, .modal_buy button, .modal_cancel button");
+
+priceButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        const amount = button.childNodes[0].textContent.trim(); // 금액만 추출
+        modalPrice.textContent = amount;
+        modalBackground.style.display = "block";
+    });
+});
+
+modalCloseButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+        modalBackground.style.display = "none";
+    });
+});
 
 // 현재가 변경
 function updatePrices() {
@@ -22,34 +43,57 @@ function updatePrices() {
     elements.forEach((el) => (el.innerText = formattedPrice));
 
     // selling change_price 셀들에 +1000, +900, ... 순서대로 적용
-    const changeSellingElements = document.querySelectorAll("section.table .selling td.change_price");
+    const changeSellingElements = document.querySelectorAll("section.table .selling td.change_price button");
     changeSellingElements.forEach((el, index) => {
         const plusPrice = randomPrice + 1000 - 100 * index; // 0번째: +1000, 1번째: +900, ...
-        el.innerText = plusPrice.toLocaleString();
+        const percent = ((plusPrice - 69600) / 69600) * 100;
+        el.innerHTML = `${plusPrice.toLocaleString()} <span>${percent.toFixed(2)}%</span>`;
     });
 
     // buying change_price 셀들에 -100, -200, ... 순서대로 적용
-    const changeBuyingElements = document.querySelectorAll("section.table .buying td.change_price");
+    const changeBuyingElements = document.querySelectorAll("section.table .buying td.change_price button");
     changeBuyingElements.forEach((el, index) => {
         const minusPrice = Math.max(randomPrice - 100 * (index + 1), 0);
-        el.innerText = minusPrice.toLocaleString();
+        const percent = ((minusPrice - 69600) / 69600) * 100;
+        el.innerHTML = `${minusPrice.toLocaleString()} <span>${percent.toFixed(2)}%</span>`;
     });
 
     // navigation 변동가 : 71400 - randomPrice
     const nowComparisonElement = document.getElementById("nowComparison");
+    const comparisonText = document.querySelector(".update_cont .comparison_text");
     nowComparisonElement.innerText = (71400 - randomPrice).toLocaleString();
+    if (randomPrice <= 71400) {
+        nowComparisonElement.style.color = "#1779FA";
+        comparisonText.classList.add("down"); // 화살표 아래로
+    } else {
+        nowComparisonElement.style.color = "";
+        comparisonText.classList.remove("down"); // 원래 화살표
+    }
+
+    // navigation 현재가 색상 변경
+    const amountTextElement = document.querySelector(".update_cont .amount .amount_text");
+    if (randomPrice <= 71400) {
+        amountTextElement.style.color = "#1779FA";
+    } else {
+        amountTextElement.style.color = "";
+    }
 
     // navigation 변동확률: (randomPrice - 69600)/69600 * 100, 소수점 2자리
     const nowPercentElement = document.getElementById("nowPercent");
     const percent = ((randomPrice - 69600) / 69600) * 100;
     nowPercentElement.innerText = percent.toFixed(2) + "%";
-
+    if (randomPrice <= 71400) {
+        nowPercentElement.style.color = "#1779FA";
+    } else {
+        nowPercentElement.style.color = "";
+    }
     const quantityCells = document.querySelectorAll("section.table .selling td.change_quantity span");
     const numberCells = document.querySelectorAll("section.table .selling td.change_number span");
     const buyQuantityCells = document.querySelectorAll("section.table .buying td.change_quantity span");
     const buyNumberCells = document.querySelectorAll("section.table .buying td.change_number span");
 
     const colors = ["#FA2D42", "#1779FA"];
+
     // 매수량 update
     quantityCells.forEach((cell) => {
         const value = Math.floor(Math.random() * (100000 - 10000 + 1)) + 100000;
