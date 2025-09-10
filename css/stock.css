@@ -235,7 +235,6 @@ td {
     border: 1px solid #f0f0f0;
     border-collapse: collapse;
 }
-
 .container section.table .selling tbody tr {
     display: flex;
     flex-direction: row-reverse;
@@ -279,9 +278,10 @@ td {
     font-size: 12px;
     background-color: #f0f7fb;
     text-align: right;
-}
-.container section.table .selling tbody tr td.change_quantity {
     border-left: none;
+}
+.container section.table .selling tbody tr td.change_quantity span {
+    padding-right: 10px;
 }
 .container section.table .selling tbody tr td.change_number {
     display: flex;
@@ -390,7 +390,7 @@ td {
     padding: 13.5px 10px;
     font-size: 12px;
     background-color: #fff7f6;
-    text-align: right;
+    text-align: left;
 }
 .container section.table .buying tbody tr td.change_quantity.number_badge {
     display: flex;
@@ -423,7 +423,7 @@ td {
     margin: inherit;
     border-bottom: 1px solid #f0f0f0;
 }
-.container section.description_box.conclusion div {
+.container section.description_box.conclusion .conclusion_scroll div {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -434,12 +434,17 @@ td {
     padding: 8px 10px;
     border-bottom: 1px solid #f0f0f0;
 }
-.container section.description_box .conclusion > span {
+.container section.description_box .conclusion .conclusion_scroll > span {
     color: #000000;
 }
-.container section.description_box .description_conclusion {
+.container section.description_box .conclusion_scroll .description_conclusion {
     color: #fa2d42;
 }
+.container section.description_box .conclusion_scroll {
+    overflow-y: auto;
+    max-height: 352px;
+}
+
 /* 6. 거래량 종합 */
 section.total {
     display: flex;

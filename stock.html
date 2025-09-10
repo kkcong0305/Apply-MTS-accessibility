@@ -3,6 +3,7 @@
     <link type="text/css" rel="stylesheet" href="./css/reset.css" />
     <link type="text/css" rel="stylesheet" href="./css/stock.css" />
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet" />
+    <script src="./script/stock.js" defer></script>
     <head>
         <meta charset="UTF-8" />
         <title>stock</title>
@@ -80,13 +81,13 @@
             </div>
             <!-- update -->
             <div class="update_cont">
-                <div class="amount" aria-live="polit">
+                <div class="amount">
                     <span class="amount_text">71,400</span>
                 </div>
-                <div class="comparison" aria-live="polit">
-                    <span class="comparison_text">800</span>
+                <div class="comparison">
+                    <span id="nowComparison" class="comparison_text">800</span>
                 </div>
-                <div class="percent" aria-live="polit">
+                <div id="nowPercent" class="percent">
                     <span class="percent_cont">1.13%</span>
                 </div>
             </div>
@@ -125,58 +126,18 @@
                         <tbody>
                             <tr>
                                 <td class="change_price text_badge">
-                                    71,500
+                                    72,400
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
                                 <td class="change_price">
-                                    71,600
+                                    72,300
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
-                                <td class="change_number"><span></span></td>
-                            </tr>
-                            <tr>
-                                <td class="change_price">
-                                    71,700
-                                    <span>+1.98%</span>
-                                </td>
-                                <td class="change_quantity">402,138</td>
-                                <td class="change_number"><span></span></td>
-                            </tr>
-                            <tr>
-                                <td class="change_price">
-                                    71,800
-                                    <span>+1.98%</span>
-                                </td>
-                                <td class="change_quantity">402,138</td>
-                                <td class="change_number"><span></span></td>
-                            </tr>
-                            <tr>
-                                <td class="change_price">
-                                    71,900
-                                    <span>+1.98%</span>
-                                </td>
-                                <td class="change_quantity">402,138</td>
-                                <td class="change_number"><span></span></td>
-                            </tr>
-                            <tr>
-                                <td class="change_price">
-                                    72,000
-                                    <span>+1.98%</span>
-                                </td>
-                                <td class="change_quantity">402,138</td>
-                                <td class="change_number"><span></span></td>
-                            </tr>
-                            <tr>
-                                <td class="change_price">
-                                    72,100
-                                    <span>+1.98%</span>
-                                </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span></span></td>
                             </tr>
                             <tr>
@@ -184,23 +145,63 @@
                                     72,200
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span></span></td>
                             </tr>
                             <tr>
                                 <td class="change_price">
-                                    72,300
+                                    72,100
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span></span></td>
                             </tr>
                             <tr>
                                 <td class="change_price">
-                                    72,400
+                                    72,000
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
+                                <td class="change_number"><span></span></td>
+                            </tr>
+                            <tr>
+                                <td class="change_price">
+                                    71,900
+                                    <span>+1.98%</span>
+                                </td>
+                                <td class="change_quantity"><span>402,138</span></td>
+                                <td class="change_number"><span></span></td>
+                            </tr>
+                            <tr>
+                                <td class="change_price">
+                                    71,800
+                                    <span>+1.98%</span>
+                                </td>
+                                <td class="change_quantity"><span>402,138</span></td>
+                                <td class="change_number"><span></span></td>
+                            </tr>
+                            <tr>
+                                <td class="change_price">
+                                    71,700
+                                    <span>+1.98%</span>
+                                </td>
+                                <td class="change_quantity"><span>402,138</span></td>
+                                <td class="change_number"><span></span></td>
+                            </tr>
+                            <tr>
+                                <td class="change_price">
+                                    71,600
+                                    <span>+1.98%</span>
+                                </td>
+                                <td class="change_quantity"><span>402,138</span></td>
+                                <td class="change_number"><span></span></td>
+                            </tr>
+                            <tr>
+                                <td class="change_price">
+                                    71,500
+                                    <span>+1.98%</span>
+                                </td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span></span></td>
                             </tr>
                         </tbody>
@@ -287,8 +288,8 @@
             <section class="now_price">
                 <div aria-hidden="true"></div>
                 <div class="price_item">
-                    <span class="price text_badge">72,000</span>
-                    <span class="price text_badge yellow">72,000</span>
+                    <span class="price text_badge">71,400</span>
+                    <span class="price text_badge yellow">71,400</span>
                 </div>
                 <div aria-hidden="true"></div>
             </section>
@@ -310,7 +311,7 @@
                                     71,300
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
@@ -318,7 +319,7 @@
                                     71,200
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
@@ -326,7 +327,7 @@
                                     71,100
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
@@ -334,7 +335,7 @@
                                     71,000
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
@@ -342,7 +343,7 @@
                                     70,900
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
@@ -350,7 +351,7 @@
                                     70,800
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
@@ -358,7 +359,7 @@
                                     70,700
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
@@ -366,7 +367,7 @@
                                     70,600
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
@@ -374,7 +375,7 @@
                                     70,500
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                             <tr>
@@ -382,7 +383,7 @@
                                     70,400
                                     <span>+1.98%</span>
                                 </td>
-                                <td class="change_quantity">402,138</td>
+                                <td class="change_quantity"><span>402,138</span></td>
                                 <td class="change_number"><span>85</span></td>
                             </tr>
                         </tbody>
@@ -394,69 +395,71 @@
                         체결강도
                         <span>92.09%</span>
                     </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
-                    </div>
-                    <div class="description_conclusion">
-                        <span>71,400</span>
-                        <span class="conclusion_amount">30</span>
+                    <div class="conclusion_scroll">
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
+                        <div class="description_conclusion">
+                            <span>71,400</span>
+                            <span class="conclusion_amount">30</span>
+                        </div>
                     </div>
                 </section>
             </div>
@@ -477,16 +480,4 @@
             </section>
         </div>
     </body>
-    <script>
-        const modal = document.getElementById("bottomModal");
-        const main = document.getElementById("mainCont");
-        function openModal() {
-            modal.classList.add("active");
-            main.setAttribute("inert", "");
-        }
-        function closeModal() {
-            modal.classList.remove("active");
-            main.removeAttribute("inert");
-        }
-    </script>
 </html>
