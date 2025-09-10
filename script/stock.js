@@ -18,15 +18,17 @@ const modalCloseButtons = modalBackground.querySelectorAll(".modal_sell button, 
 
 priceButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        const amount = button.childNodes[0].textContent.trim(); // 금액만 추출
+        const amount = button.childNodes[0].textContent.trim();
         modalPrice.textContent = amount;
         modalBackground.style.display = "block";
+        main.setAttribute("inert", "");
     });
 });
 
 modalCloseButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
         modalBackground.style.display = "none";
+        main.removeAttribute("inert");
     });
 });
 

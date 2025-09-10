@@ -156,7 +156,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    padding: 14px 16px;
+    padding: 12px 16px;
 }
 
 .navi_top .arrow {
@@ -228,7 +228,6 @@ body {
     justify-content: space-between;
     color: #fa2d42;
     font-weight: 600;
-    margin-top: 20px;
     padding: 12px 24px 8px;
 }
 .update_cont .amount_text {
