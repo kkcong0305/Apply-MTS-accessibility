@@ -15,6 +15,7 @@ const priceButtons = document.querySelectorAll(".change_price button");
 const modalBackground = document.getElementById("bottomModal_1");
 const modalPrice = modalBackground.querySelector(".modal_price span");
 const modalCloseButtons = modalBackground.querySelectorAll(".modal_sell button, .modal_buy button, .modal_cancel button");
+const nowPriceButton = document.querySelector("section.now_price .price_item");
 
 priceButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -23,6 +24,14 @@ priceButtons.forEach((button) => {
         modalBackground.style.display = "block";
         main.setAttribute("inert", "");
     });
+});
+
+// section3. 현재가 구매모달
+nowPriceButton.addEventListener("click", () => {
+    const amount = nowPriceButton.querySelector("span.price").textContent.trim();
+    modalPrice.textContent = amount;
+    modalBackground.style.display = "block";
+    main.setAttribute("inert", "");
 });
 
 modalCloseButtons.forEach((btn) => {
@@ -34,17 +43,17 @@ modalCloseButtons.forEach((btn) => {
 
 // 현재가 변경
 function updatePrices() {
-    // 100 ~ 10000 사이 랜덤 숫자
-    const randomPrice = Math.floor(Math.random() * (10000 - 100 + 1)) + 100;
+    // 10000 ~ 100000 사이 랜덤 숫자
+    const randomPrice = Math.floor(Math.random() * (100000 - 10000 + 1)) + 100;
 
-    // 숫자를 천 단위 ','로 변환
+    // 숫자를 천 단위로 변환
     const formattedPrice = randomPrice.toLocaleString();
 
-    // 두 개 클래스에 동일 값 적용
+    // Navigation, section3 현재값 동일하게 적용
     const elements = document.querySelectorAll("section.now_price .price_item .price, .update_cont .amount .amount_text");
     elements.forEach((el) => (el.innerText = formattedPrice));
 
-    // selling change_price 셀들에 +1000, +900, ... 순서대로 적용
+    // selling change_price 들 +1000, +900, ... 적용
     const changeSellingElements = document.querySelectorAll("section.table .selling td.change_price button");
     changeSellingElements.forEach((el, index) => {
         const plusPrice = randomPrice + 1000 - 100 * index; // 0번째: +1000, 1번째: +900, ...
@@ -52,7 +61,7 @@ function updatePrices() {
         el.innerHTML = `${plusPrice.toLocaleString()} <span>${percent.toFixed(2)}%</span>`;
     });
 
-    // buying change_price 셀들에 -100, -200, ... 순서대로 적용
+    // buying change_price 들 -100, -200, ... 적용
     const changeBuyingElements = document.querySelectorAll("section.table .buying td.change_price button");
     changeBuyingElements.forEach((el, index) => {
         const minusPrice = Math.max(randomPrice - 100 * (index + 1), 0);
@@ -60,10 +69,13 @@ function updatePrices() {
         el.innerHTML = `${minusPrice.toLocaleString()} <span>${percent.toFixed(2)}%</span>`;
     });
 
-    // navigation 변동가 : 71400 - randomPrice
+    // navigation 변동가(71400 - randomPrice)
     const nowComparisonElement = document.getElementById("nowComparison");
     const comparisonText = document.querySelector(".update_cont .comparison_text");
-    nowComparisonElement.innerText = (71400 - randomPrice).toLocaleString();
+
+    const diff = 71400 - randomPrice; // 변동값
+    nowComparisonElement.innerText = Math.abs(diff).toLocaleString(); // 절댓값만 표시
+
     if (randomPrice <= 71400) {
         nowComparisonElement.style.color = "#1779FA";
         comparisonText.classList.add("down"); // 화살표 아래로
@@ -80,7 +92,7 @@ function updatePrices() {
         amountTextElement.style.color = "";
     }
 
-    // navigation 변동확률: (randomPrice - 69600)/69600 * 100, 소수점 2자리
+    // navigation 변동확률(randomPrice - 69600)/69600 * 100, 소수점 2자리
     const nowPercentElement = document.getElementById("nowPercent");
     const percent = ((randomPrice - 69600) / 69600) * 100;
     nowPercentElement.innerText = percent.toFixed(2) + "%";
@@ -89,6 +101,15 @@ function updatePrices() {
     } else {
         nowPercentElement.style.color = "";
     }
+
+    // 500ms ~ 5000ms 사이 랜덤 시간
+    const randomDelay = Math.floor(Math.random() * (5000 - 500 + 1)) + 500;
+    setTimeout(updatePrices, randomDelay);
+}
+updatePrices();
+
+// 매수매도 update
+function updateVolume() {
     const quantityCells = document.querySelectorAll("section.table .selling td.change_quantity span");
     const numberCells = document.querySelectorAll("section.table .selling td.change_number span");
     const buyQuantityCells = document.querySelectorAll("section.table .buying td.change_quantity span");
@@ -96,7 +117,7 @@ function updatePrices() {
 
     const colors = ["#FA2D42", "#1779FA"];
 
-    // 매수량 update
+    // 매수량
     quantityCells.forEach((cell) => {
         const value = Math.floor(Math.random() * (100000 - 10000 + 1)) + 100000;
         cell.innerText = value.toLocaleString();
@@ -108,7 +129,7 @@ function updatePrices() {
         cell.style.color = colors[Math.floor(Math.random() * colors.length)];
     });
 
-    // 매도량 update
+    // 매도량
     buyQuantityCells.forEach((cell) => {
         const value = Math.floor(Math.random() * (1200000 - 100000 + 1)) + 100000;
         cell.innerText = value.toLocaleString();
@@ -120,12 +141,13 @@ function updatePrices() {
         cell.style.color = colors[Math.floor(Math.random() * colors.length)];
     });
 
-    // 500ms ~ 5000ms 사이 랜덤 시간
-    const randomDelay = Math.floor(Math.random() * (5000 - 500 + 1)) + 500;
-    setTimeout(updatePrices, randomDelay);
+    // 500ms ~ 1000ms 사이 랜덤 시간으로 재실행
+    const randomDelay = Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
+    setTimeout(updateVolume, randomDelay);
 }
-updatePrices();
+updateVolume();
 
+// 체결강도 update
 function updateConclusion() {
     const scrollBox = document.querySelector(".conclusion_scroll");
     if (scrollBox) {
@@ -151,7 +173,6 @@ function updateConclusion() {
         scrollBox.scrollTop = scrollBox.scrollHeight;
     }
 
-    // 체결강도 랜덤 시간 (예: 500~3000ms)
     const randomDelay = Math.floor(Math.random() * (1000 - 500 + 1)) + 500;
     setTimeout(updateConclusion, randomDelay);
 }
