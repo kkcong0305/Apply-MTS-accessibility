@@ -73,15 +73,15 @@ function updatePrices() {
     const nowComparisonElement = document.getElementById("nowComparison");
     const comparisonText = document.querySelector(".update_cont .comparison_text");
 
-    const diff = 71400 - randomPrice; // 변동값
-    nowComparisonElement.innerText = Math.abs(diff).toLocaleString(); // 절댓값만 표시
+    const variablePrice = 71400 - randomPrice;
+    nowComparisonElement.innerText = Math.abs(variablePrice).toLocaleString(); // 절댓값만 표시
 
     if (randomPrice <= 71400) {
         nowComparisonElement.style.color = "#1779FA";
-        comparisonText.classList.add("down"); // 화살표 아래로
+        comparisonText.classList.add("down");
     } else {
         nowComparisonElement.style.color = "";
-        comparisonText.classList.remove("down"); // 원래 화살표
+        comparisonText.classList.remove("down");
     }
 
     // navigation 현재가 색상 변경
