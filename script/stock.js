@@ -177,3 +177,55 @@ function updateConclusion() {
     setTimeout(updateConclusion, randomDelay);
 }
 updateConclusion();
+
+// 체크박스 script
+document.addEventListener("DOMContentLoaded", function () {
+    const nowCheckbox = document.getElementById("now");
+    const highestCheckbox = document.getElementById("highest");
+    const lowestCheckbox = document.getElementById("lowest");
+
+    const nowPolite = document.querySelector(".update_cont .amount_text");
+    const highPolite = document.querySelector(".update_sub .sub_fix .high");
+    const lowPolite = document.querySelector(".update_sub .sub_fix .low");
+
+    const closeBtn = document.getElementById("closeModal");
+
+    function applyAria() {
+        if (nowCheckbox.checked) {
+            nowPolite?.setAttribute("aria-live", "polite");
+        } else {
+            nowPolite?.removeAttribute("aria-live");
+        }
+        if (highestCheckbox.checked) {
+            highPolite?.setAttribute("aria-live", "polite");
+        } else {
+            highPolite?.removeAttribute("aria-live");
+        }
+        if (lowestCheckbox.checked) {
+            lowPolite?.setAttribute("aria-live", "polite");
+        } else {
+            lowPolite?.removeAttribute("aria-live");
+        }
+    }
+    closeBtn.addEventListener("click", applyAria);
+});
+
+// 고가 변경(20초 후)
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        const highText = document.querySelector(".high_text");
+        if (highText) {
+            highText.textContent = "80,500";
+        }
+    }, 20000);
+});
+
+// 저가 변경(35초 후)
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        const lowText = document.querySelector(".low_text");
+        if (lowText) {
+            lowText.textContent = "69,400";
+        }
+    }, 35000);
+});
