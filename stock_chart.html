@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-    <link type="text/css" rel="stylesheet" href="./css/reset.css" />
-    <link type="text/css" rel="stylesheet" href="./css/stock.css" />
-    <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet" />
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>stock_chart</title>
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/series-label.js"></script>
@@ -12,6 +10,9 @@
         <script src="https://code.highcharts.com/modules/accessibility.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
         <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <link type="text/css" rel="stylesheet" href="./css/reset.css" />
+        <link type="text/css" rel="stylesheet" href="./css/stock.css" />
+        <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-barun-gothic.css" rel="stylesheet" />
     </head>
     <body>
         <div class="main" id="mainCont">
@@ -68,9 +69,9 @@
                 </div>
             </div>
             <!-- chart table -->
-            <div id="container" class="container_table" style="width: 100%; height: 400px"></div>
+            <div id="container" class="container_table" style="width: 100%; height: 400px" lang="en"></div>
             <!-- chart sound -->
-            <div class="container_sound">
+            <div class="container_sound" lang="en">
                 <button id="sonify" class="sonify">Play chart</button>
                 <div id="container_2"></div>
             </div>
