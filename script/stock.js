@@ -191,22 +191,29 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.getElementById("closeModal");
 
     function applyAria() {
+        // now 체크박스 상태 확인
         if (nowCheckbox.checked) {
             nowPolite?.setAttribute("aria-live", "polite");
         } else {
-            nowPolite?.removeAttribute("aria-live");
+            nowPolite?.removeAttribute("aria-live", "polite");
         }
+
+        // highest 체크박스 상태 확인
         if (highestCheckbox.checked) {
             highPolite?.setAttribute("aria-live", "polite");
         } else {
-            highPolite?.removeAttribute("aria-live");
+            highPolite?.removeAttribute("aria-live", "polite");
         }
+
+        // lowest 체크박스 상태 확인
         if (lowestCheckbox.checked) {
             lowPolite?.setAttribute("aria-live", "polite");
         } else {
-            lowPolite?.removeAttribute("aria-live");
+            lowPolite?.removeAttribute("aria-live", "polite");
         }
     }
+
+    // 닫기 버튼 클릭 시에만 실행
     closeBtn.addEventListener("click", applyAria);
 });
 
